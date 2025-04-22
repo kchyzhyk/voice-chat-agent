@@ -8,16 +8,10 @@ const RecorderContainer = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "start",
   gap: "1rem",
-  padding: "1.5rem",
+  padding: "0.5rem 1.5rem",
   borderRadius: "12px",
-  backgroundColor: "#f8f9fa",
-  boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-});
-
-const ButtonContainer = styled("div")({
-  display: "flex",
-  gap: "1rem",
 });
 
 const RecordButton = styled("button")(
@@ -170,27 +164,25 @@ export const AutoSilenceRecorder: React.FC<AutoSilenceRecorderProps> = ({
 
   return (
     <RecorderContainer>
-      <ButtonContainer>
-        {isRecording ? (
-          <RecordButton
-            isrecording="true"
-            onClick={stopRecording}
-            disabled={isProcessing}
-          >
-            <StopIcon />
-            Stop
-          </RecordButton>
-        ) : (
-          <RecordButton
-            isrecording="false"
-            onClick={startRecording}
-            disabled={isProcessing}
-          >
-            <MicIcon />
-            Record
-          </RecordButton>
-        )}
-      </ButtonContainer>
+      {isRecording ? (
+        <RecordButton
+          isrecording="true"
+          onClick={stopRecording}
+          disabled={isProcessing}
+        >
+          <StopIcon />
+          Stop
+        </RecordButton>
+      ) : (
+        <RecordButton
+          isrecording="false"
+          onClick={startRecording}
+          disabled={isProcessing}
+        >
+          <MicIcon />
+          Record
+        </RecordButton>
+      )}
 
       <StatusText>
         {isProcessing ? (

@@ -17,14 +17,8 @@ export const HybridRecorder: React.FC<HybridRecorderProps> = ({
   const [autoMode, setAutoMode] = useState(true);
 
   return (
-    <Box
-      sx={{
-        position: "relative",
-        border: "1px solid #ddd",
-        borderRadius: 2,
-        p: 2,
-        width: "100%",
-      }}
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       {autoMode ? (
         <AutoSilenceRecorder
@@ -64,6 +58,6 @@ export const HybridRecorder: React.FC<HybridRecorderProps> = ({
           )}
         </IconButton>
       </Tooltip>
-    </Box>
+    </div>
   );
 };
